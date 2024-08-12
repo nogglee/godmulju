@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/godmulju/static/css/main.5243e0aa.css",
+    "main.js": "/godmulju/static/js/main.a61c3c99.js",
+    "static/js/453.d19a08fa.chunk.js": "/godmulju/static/js/453.d19a08fa.chunk.js",
+    "index.html": "/godmulju/index.html",
+    "main.5243e0aa.css.map": "/godmulju/static/css/main.5243e0aa.css.map",
+    "main.a61c3c99.js.map": "/godmulju/static/js/main.a61c3c99.js.map",
+    "453.d19a08fa.chunk.js.map": "/godmulju/static/js/453.d19a08fa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5243e0aa.css",
+    "static/js/main.a61c3c99.js"
+  ]
+}
