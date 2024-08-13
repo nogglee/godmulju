@@ -1,67 +1,51 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Quiz = () => {
+  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
-  const [showScore, setShowScore] = useState(false);
+  const [answers, setAnswers] = useState({ I: 0, E: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 });
 
+  // 질문과 답변
   const questions = [
-    {
-      questionText: 'How do you usually start your day?',
-      answerOptions: [
-        { answerText: 'Exercise', isCorrect: true },
-        { answerText: 'Coffee', isCorrect: false },
-        { answerText: 'Reading', isCorrect: false },
-        { answerText: 'Sleeping', isCorrect: false },
-      ],
-    },
-    {
-      questionText: 'What is your favorite type of weather?',
-      answerOptions: [
-        { answerText: 'Sunny', isCorrect: false },
-        { answerText: 'Rainy', isCorrect: true },
-        { answerText: 'Snowy', isCorrect: false },
-        { answerText: 'Windy', isCorrect: false },
-      ],
-    },
+    { text: '질문 1', options: [{ text: '답변 1 - I', type: 'I' }, { text: '답변 2 - E', type: 'E' }] },
+    // ... 나머지 질문들
   ];
 
-  const handleAnswerOptionClick = (isCorrect) => {
-    if (isCorrect) {
-      setScore(score + 1);
-    }
+  const handleAnswerClick = (type) => {
+    setAnswers((prevAnswers) => ({
+      ...prevAnswers,
+      [type]: prevAnswers[type] + 1,
+    }));
 
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
-      setShowScore(true);
+      calculateResult();
     }
   };
 
+  const calculateResult = () => {
+    const result =
+      (answers.I >= answers.E ? 'I' : 'E') +
+      (answers.S >= answers.N ? 'S' : 'N') +
+      (answers.T >= answers.F ? 'T' : 'F') +
+      (answers.J >= answers.P ? 'J' : 'P');
+
+    navigate('/result', { state: { result } });
+  };
+
   return (
-    <div className='app'>
-      {showScore ? (
-        <div className='score-section'>
-          You scored {score} out of {questions.length}
-        </div>
-      ) : (
-        <>
-          <div className='question-section'>
-            <div className='question-count'>
-              <span>Question {currentQuestion + 1}</span>/{questions.length}
-            </div>
-            <div className='question-text'>{questions[currentQuestion].questionText}</div>
-          </div>
-          <div className='answer-section'>
-            {questions[currentQuestion].answerOptions.map((answerOption, index) => (
-              <button key={index} onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>
-                {answerOption.answerText}
-              </button>
-            ))}
-          </div>
-        </>
-      )}
+    <div className="quiz-container">
+      <h2>{questions[currentQuestion].text}</h2>
+      <div>
+        {questions[currentQuestion].options.map((option, index) => (
+          <button key={index} onClick={() => handleAnswerClick(option.type)}>
+            {option.text}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
