@@ -33,33 +33,33 @@ const Quiz = () => {
 
   // 답변 클릭 핸들러
   const handleAnswerClick = (type) => {
-    // 선택된 답변의 유형 점수 업데이트
-    setAnswers((prevAnswers) => ({
-      ...prevAnswers,
-      [type]: prevAnswers[type] + 1,
-    }));
-
-    // 다음 질문으로 이동
-    const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < questions.length) {
-      setCurrentQuestion(nextQuestion);
-    } else {
-      // 모든 질문에 답변한 후 결과 계산
-      calculateResult();
-    }
+    setAnswers((prevAnswers) => {
+      const updatedAnswers = {
+        ...prevAnswers,
+        [type]: prevAnswers[type] + 1,
+      };
+  
+      const nextQuestion = currentQuestion + 1;
+      if (nextQuestion < questions.length) {
+        setCurrentQuestion(nextQuestion);
+      } else {
+        calculateResult(updatedAnswers);
+      }
+  
+      return updatedAnswers;
+    });
   };
 
   // 결과 계산
-  const calculateResult = () => {
+  const calculateResult = (finalAnswers) => {
     const result =
-      (answers.I >= answers.E ? 'I' : 'E') +
-      (answers.S >= answers.N ? 'S' : 'N') +
-      (answers.T >= answers.F ? 'T' : 'F') +
-      (answers.J >= answers.P ? 'J' : 'P');
-    
+      (finalAnswers.I >= finalAnswers.E ? 'I' : 'E') +
+      (finalAnswers.S >= finalAnswers.N ? 'S' : 'N') +
+      (finalAnswers.T >= finalAnswers.F ? 'T' : 'F') +
+      (finalAnswers.J >= finalAnswers.P ? 'J' : 'P');
+  
     console.log("최종 MBTI 결과:", result);
-
-    // 결과 페이지로 이동
+  
     navigate('/result', { state: { result } });
   };
 
