@@ -10,8 +10,8 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1>심리테스트에 오신 것을 환영하지 않습니다!</h1>
-      <p>12가지 질문을 통해 당신의 MBTI 유형을 알아보세요.</p>
+      <h1>갓물주 운명 테스트</h1>
+      <p>당신은 과연 건물을 가질 수 있을까요?</p>
       <button onClick={startQuiz}>시작하기</button>
     </div>
   );

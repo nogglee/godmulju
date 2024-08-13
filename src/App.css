@@ -34,3 +34,39 @@ p {
   color: #666;
 }
 
+/* 차트 디자인 시작 */
+.result-container {
+  text-align: center;
+}
+
+.traits {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.trait {
+  width: 100px;
+}
+
+.circle-chart {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+
+.circle-chart svg {
+  transform: rotate(-90deg);
+}
+
+.circle-chart span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* 차트 디자인 끝 */
