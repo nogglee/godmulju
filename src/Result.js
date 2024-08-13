@@ -14,7 +14,7 @@ const Result = () => {
     <div className="result-container">
       <h2>{mbtiResult.buildingName}</h2>
       <div>
-        <img src={`/images/${result}.png`} alt={`${result} 건물 이미지`} />
+        <img src={`/images/${result}.png`} alt={`${result} 이미지`} />
       </div>
       <div className="traits">
         {mbtiResult.traits.map((trait, index) => (
