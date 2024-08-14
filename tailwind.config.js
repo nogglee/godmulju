@@ -7,7 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // 추가적인 테마 설정
+      fontFamily: {
+        title: ['yg-jalnan', 'sans-serif'], // 타이틀 폰트 패밀리 설정
+        body: ['Pretendard', 'sans-serif'], // 본문 폰트 패밀리 설정
+      },
     },
   },
   plugins: [
