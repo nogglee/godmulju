@@ -70,3 +70,46 @@ p {
 }
 
 /* 차트 디자인 끝 */
+
+/* 사용자 정보 시작 */
+.user-info-form {
+  text-align: center;
+}
+
+.form-group {
+  margin: 20px 0;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+.confirm-button {
+  background-color: #ff7f00;
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.confirm-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* 사용자 정보 끝 */
