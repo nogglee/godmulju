@@ -11,6 +11,13 @@ module.exports = {
         title: ['yg-jalnan', 'sans-serif'], // 타이틀 폰트 패밀리 설정
         body: ['Pretendard', 'sans-serif'], // 본문 폰트 패밀리 설정
       },
+      colors: {
+        primary: {
+          400: '#F28302', 
+          500: '#E67E22', 
+          600: '#D35400', 
+        },
+      },
     },
   },
   plugins: [
