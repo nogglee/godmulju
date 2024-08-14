@@ -3,27 +3,14 @@
   font-family: Arial, sans-serif;
   color: black;
     margin-top: 20px;
-  }
-  
-  .home-container,
-  .quiz-container,
-  .result-container {
-    margin-top: 50px;
-  }
-  
-  button {
-    margin: 10px;
-    padding: 15px 20px;
-    font-size: 16px;
-    background-color: #ffffff;
-      color: #000000;
-    border: none;
-    cursor: pointer;
-  
-    button:hover {
-      background-color: #45a049;
-    }
 }
+
+.home-container,
+.quiz-container,
+.result-container {
+  margin-top: 50px;
+}
+  
 
 h1,
 h2 {
@@ -113,3 +100,27 @@ input[type="radio"] {
 }
 
 /* 사용자 정보 끝 */
+button {
+  padding: 15px 20px;
+  font-size: 16px;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+
+  button:hover {
+    background-color: #45a049;
+  }
+}
+
+.quiz-button {
+  height: 84px;
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #111;
+  border-radius: 12px;
+  border: solid 3px;
+  box-shadow: 0 5px 1px 0;
+  cursor: pointer;
+}

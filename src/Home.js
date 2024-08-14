@@ -11,9 +11,7 @@ const Home = () => {
   return (
     <div class="h-screen flex flex-col items-center">
     
-    <div id="header" class="w-full h-16 max-w-md bg-primary-400 flex justify-center items-center">
-      <h2 class="text-white">헤더 텍스트</h2>
-    </div>
+    
   
     <div class="w-full h-full flex-grow max-w-md bg-gray-100 flex justify-center">
       <div class=" text-center flex flex-col justify-between h-full py-20">
