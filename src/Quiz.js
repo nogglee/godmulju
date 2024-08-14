@@ -46,34 +46,22 @@ const Quiz = () => {
       };
 
       const nextQuestion = currentQuestion + 1;
-      if (nextQuestion < shuffledQuestions.length) {
+      if (nextQuestion < questions.length) {
         setCurrentQuestion(nextQuestion);
       } else {
-        calculateResult(updatedAnswers);
+        // 모든 질문이 완료되면 사용자 정보 입력 페이지로 이동
+        navigate('/user-info', { state: { answers: updatedAnswers } });
       }
 
       return updatedAnswers;
     });
   };
 
-  // 결과 계산
-  const calculateResult = (finalAnswers) => {
-    const result =
-      (finalAnswers.I >= finalAnswers.E ? 'I' : 'E') +
-      (finalAnswers.S >= finalAnswers.N ? 'S' : 'N') +
-      (finalAnswers.T >= finalAnswers.F ? 'T' : 'F') +
-      (finalAnswers.J >= finalAnswers.P ? 'J' : 'P');
-
-    console.log("최종 MBTI 결과:", result);
-
-    navigate('/result', { state: { result } });
-  };
-
   return (
     <div className="quiz-container">
-      <h2>{shuffledQuestions[currentQuestion]?.text}</h2>
+      <h2>{questions[currentQuestion].text}</h2>
       <div>
-        {shuffledQuestions[currentQuestion]?.options.map((option, index) => (
+        {questions[currentQuestion].options.map((option, index) => (
           <button key={index} onClick={() => handleAnswerClick(option.type)}>
             {option.text}
           </button>

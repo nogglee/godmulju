@@ -4,8 +4,8 @@ import { mbtiData } from './data/mbtiData';
 
 const Result = () => {
   const location = useLocation();
-  const result = location.state.result; // MBTI 결과
-  const mbtiResult = mbtiData.find(item => item.mbti === result); // 해당 MBTI 데이터 찾기
+  const { result, userInfo } = location.state; // MBTI 결과와 사용자 정보
+  const mbtiResult = mbtiData.find(item => item.mbti === result); 
 
   const radius = 45; // 반지름
   const circumference = 2 * Math.PI * radius; // 원 둘레
@@ -35,7 +35,7 @@ const Result = () => {
                   cy="50%"
                   r={radius}
                   fill="none"
-                  stroke="#4caf50" // 원하는 색상으로 변경 가능
+                  stroke="#4caf50"
                   strokeWidth="10"
                   strokeDasharray={circumference}
                   strokeDashoffset={
@@ -50,6 +50,10 @@ const Result = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="user-info-summary">
+        <p>나이: {userInfo.age}</p>
+        <p>역할: {userInfo.role}</p>
       </div>
     </div>
   );

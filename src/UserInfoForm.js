@@ -1,21 +1,33 @@
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const UserInfoForm = ({ onConfirm }) => {
-  const [age, setAge] = useState('20대'); // 드롭다운 기본값 20대
-  const [role, setRole] = useState(''); // 라디오 버튼 기본값 선택 안됨
-  const isFormValid = age && role; // 드롭다운과 라디오 버튼이 모두 선택되었는지 확인
+const UserInfoForm = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [age, setAge] = useState('20대');
+  const [role, setRole] = useState('');
+  const isFormValid = age && role;
 
   const handleConfirm = () => {
     if (isFormValid) {
-      // onConfirm 함수에 선택된 데이터를 전달
-      onConfirm({ age, role });
+      const userInfo = { age, role };
+      const answers = location.state.answers;
+
+      // 최종 결과 계산
+      const result =
+        (answers.I >= answers.E ? 'I' : 'E') +
+        (answers.S >= answers.N ? 'S' : 'N') +
+        (answers.T >= answers.F ? 'T' : 'F') +
+        (answers.J >= answers.P ? 'J' : 'P');
+
+      // Result 페이지로 이동하면서 결과와 사용자 정보를 전달
+      navigate('/result', { state: { result, userInfo } });
     }
   };
 
   return (
     <div className="user-info-form">
       <h2>아래 정보를 입력하면 더 어울리는 건물을 알 수 있어요!</h2>
-
       <div className="form-group">
         <label>나이</label>
         <select value={age} onChange={(e) => setAge(e.target.value)}>
@@ -56,7 +68,7 @@ const UserInfoForm = ({ onConfirm }) => {
       <button
         className="confirm-button"
         onClick={handleConfirm}
-        disabled={!isFormValid} // 드롭다운과 라디오 버튼이 선택되지 않으면 비활성화
+        disabled={!isFormValid} 
       >
         내 건물 확인하기
       </button>
