@@ -142,3 +142,30 @@ input[type="radio"] {
   border-radius: 10px;
   color: #fff;
 }
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  animation: fadeInOut 2s ease-in-out;
+  width: 200px;
+}
+
+/* 토스트 메시지 페이드 인/아웃 애니메이션 */
+@keyframes fadeInOut {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  10%,
+  90% {
+    opacity: 1;
+  }
+}
