@@ -21,6 +21,16 @@ p {
   color: #666;
 }
 
+.sub-text {
+  border: solid 1px #FB9504;
+  color: #FB9504;
+  padding: 6px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 13px;
+  margin: 110px 0 20px;
+  width: 230px;
+}
 /* 차트 디자인 시작 */
 .result-container {
   text-align: center;
@@ -100,20 +110,8 @@ input[type="radio"] {
 }
 
 /* 사용자 정보 끝 */
-button {
-  padding: 15px 20px;
-  font-size: 16px;
-  background-color: #ffffff;
-  color: #000000;
-  border: none;
-  cursor: pointer;
 
-  button:hover {
-    background-color: #45a049;
-  }
-}
-
-.quiz-button {
+.button-quiz {
   height: 84px;
   padding: 5px 10px;
   font-size: 14px;
@@ -123,4 +121,24 @@ button {
   border: solid 3px;
   box-shadow: 0 5px 1px 0;
   cursor: pointer;
+}
+.button-start {
+  height: 62px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #000;
+  color: #fff;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.line-home {
+  background-color: #fff;
+  height: 2px;
+}
+
+.button-share {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  color: #fff;
 }

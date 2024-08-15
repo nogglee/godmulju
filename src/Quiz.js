@@ -89,7 +89,7 @@ const Quiz = () => {
           {/* 하단 버튼 영역 */}
           <div className="grid gap-6 mt-4">
             {shuffledQuestions[currentQuestion].options.map((option, index) => (
-              <button key={index} onClick={() => handleAnswerClick(option.type)} style={{ whiteSpace: 'pre-wrap' }} className="quiz-button">
+              <button key={index} onClick={() => handleAnswerClick(option.type)} style={{ whiteSpace: 'pre-wrap' }} className="button-quiz">
                 {option.text}
               </button>
             ))}
