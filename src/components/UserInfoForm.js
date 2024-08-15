@@ -24,9 +24,8 @@ const UserInfoForm = () => {
 
       try {
         // IP 주소를 가져오기
-        const userIp = await fetch('https://api.ipify.org?format=json')
-          .then(response => response.json())
-          .then(data => data.ip);
+        const userIp = await fetch('https://ipapi.co/ip/')
+  .then(response => response.text()); // .text()를 사용하여 IP만 가져옵니다.
 
         const userCollection = collection(db, "users");
         const userQuery = query(userCollection, where("ip", "==", userIp));
