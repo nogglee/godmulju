@@ -42,7 +42,7 @@ const Home = () => {
       <div class="h-full w-full max-w-md px-4 py-8 bg-primary-400">
         <div class="w-full h-full flex flex-col items-center justify-start gap-12">
           <button onClick={startQuiz} class="button-start w-full bg-primary-400 text-white mx-2 py-2">시작하기</button>
-          <div class="w-full flex flex-col items-center justify-between gap-8">
+          <div class="w-full flex flex-col items-center justify-between gap-6">
             <div class="line-home w-full"></div>
             <div class="flex flex-col items-center justify-between gap-3">
               <div class="font-title text-md text-white">누적 참여자 수</div>
