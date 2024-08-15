@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Header from './Header';
+import { ReactComponent as SelectIcon } from './assets/ico-arrow-down.svg';
 
 const UserInfoForm = () => {
   const navigate = useNavigate();
@@ -33,40 +34,44 @@ const UserInfoForm = () => {
 
       {/* 결과 컨텐츠 */}
       <div className="flex flex-col items-center h-full max-w-md w-full bg-gray-100 py-20 px-8 font-title gap-1">
-        <div className='text-xl md:text-2xl text-center'>아래 정보를 입력하면<br/>더 어울리는 건물을 알 수 있어요!</div>
-        <div className="form-group">
-          <select value={age} onChange={(e) => setAge(e.target.value)} className='select-form'>
-            <option value="10대">10대</option>
-            <option value="20대">20대</option>
-            <option value="30대">30대</option>
-            <option value="40대">40대</option>
-            <option value="50대 이상">50대 이상</option>
-          </select>
-        </div>
+        <div className='text-xl md:text-2xl text-center mb-4'>아래 정보를 입력하면<br/>더 어울리는 건물을 알 수 있어요!</div>
+        
+        <select value={age} onChange={(e) => setAge(e.target.value)}>
+          <option value="10대">10대</option>
+          <option value="20대">20대</option>
+          <option value="30대">30대</option>
+          <option value="40대">40대</option>
+          <option value="50대 이상">50대 이상</option>
+        </select>
+        
 
-        <div className="form-group">
-          <label>나는 지금</label>
-          <div className="flex flex-row">
-            <label>
-              <input
-                type="radio"
-                name="role"
-                value="임차인"
-                checked={role === '임차인'}
-                onChange={(e) => setRole(e.target.value)}
-              />
-              임차인
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="role"
-                value="임대인"
-                checked={role === '임대인'}
-                onChange={(e) => setRole(e.target.value)}
-              />
-              임대인
-            </label>
+        <div className="w-full mt-10">
+          <label className="text-lg">나는 지금</label>
+          <div className="flex flex-row gap-4 justify-between">
+            <div className='info-label-box'>
+              <label className='info-label'>
+                <input
+                  type="radio"
+                  name="role"
+                  value="임차인"
+                  checked={role === '임차인'}
+                  onChange={(e) => setRole(e.target.value)}
+                />
+                임차인
+              </label>
+            </div>
+            <div className='info-label-box'>
+              <label className='info-label'>
+                <input
+                  type="radio"
+                  name="role"
+                  value="임대인"
+                  checked={role === '임대인'}
+                  onChange={(e) => setRole(e.target.value)}
+                />
+                임대인
+              </label>
+            </div>
           </div>
         </div>
 

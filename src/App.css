@@ -102,11 +102,13 @@ input[type="radio"] {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 20px;
+  width: 100%;
 }
 
 .confirm-button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+  width: 100%;
 }
 
 /* 사용자 정보 끝 */
@@ -168,4 +170,35 @@ input[type="radio"] {
   90% {
     opacity: 1;
   }
+}
+select {
+  height: 60px;
+  width: 160px;
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #111;
+  border-radius: 12px;
+  border: solid 3px;
+  box-shadow: 0 5px 1px 0;
+  cursor: pointer;
+  text-align: center;
+}
+
+.info-label {
+  font-size: 20px;
+}
+
+.info-label-box {
+  height: 60px;
+  width: 100%;
+  padding: 5px 10px;
+  background-color: #fff;
+  color: #111;
+  border-radius: 12px;
+  border: solid 3px;
+  box-shadow: 0 5px 1px 0;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 60px;
 }
