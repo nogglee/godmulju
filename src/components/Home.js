@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ReactComponent as ShareIcon } from './assets/ico-share.svg';
+import { ReactComponent as ShareIcon } from '../assets/ico-share.svg';
 
 const Home = () => {
   const navigate = useNavigate();

@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import Quiz from './Quiz';
-import UserInfoForm from './UserInfoForm'; // 사용자 정보 입력 컴포넌트
-import Result from './Result'; // 결과 컴포넌트
+import Home from './components/Home';
+import Quiz from './components/Quiz';
+import UserInfoForm from './components/UserInfoForm'; // 사용자 정보 입력 컴포넌트
+import Result from './components/Result'; // 결과 컴포넌트
 import './App.css';
 
 const App = () => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { mbtiData } from './data/mbtiData';
+import { mbtiData } from '../data/mbtiData';
 import Header from './Header';
 
 const Result = () => {

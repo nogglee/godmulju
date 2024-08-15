@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ReactComponent as BackIcon } from './assets/ico-arrow-left.svg';
+import { ReactComponent as BackIcon } from '../assets/ico-arrow-left.svg';
 
 const Header = () => {
   
