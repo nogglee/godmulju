@@ -35,6 +35,8 @@ const Home = () => {
         <div class=" text-center flex flex-col px-4 items-center">
             <div class="sub-text font-body">그대는 어떤 건물을 가질 운명인가</div>
             <div class="font-title text-4xl md:text-5xl mb-10">갓물주 운명 테스트</div>
+            <div class="line-home w-full"></div>
+            <button onClick={handleShareClick} class="button-share flex flex-row font-title text-md gap-1 py-2 px-3 mb-16"><ShareIcon/>공유하기</button>
         </div>
         <img src='/images/bgHome.png' class="w-full"></img>
       </div>
@@ -46,8 +48,7 @@ const Home = () => {
               <div class="font-title text-md text-white">누적 참여자 수</div>
               <div class="font-title text-3xl text-white">1,000,000</div>
             </div>
-            <div class="line-home w-full"></div>
-            <button onClick={handleShareClick} class="button-share flex flex-row font-title text-md gap-1 py-2 px-3"><ShareIcon/>공유하기</button>
+            
           </div>
         </div>
       </div>
