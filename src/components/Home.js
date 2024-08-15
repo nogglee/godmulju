@@ -34,21 +34,20 @@ const Home = () => {
       <div class="w-full h-full flex flex-col max-w-md bg-gray-100 items-center">
         <div class=" text-center flex flex-col px-4 items-center">
             <div class="sub-text font-body">그대는 어떤 건물을 가질 운명인가</div>
-            <div class="font-title text-4xl md:text-5xl mb-10">갓물주 운명 테스트</div>
-            <div class="line-home w-full"></div>
-            <button onClick={handleShareClick} class="button-share flex flex-row font-title text-md gap-1 py-2 px-3 mb-16"><ShareIcon/>공유하기</button>
+            <div class="font-title text-4xl md:text-5xl mb-8">갓물주 운명 테스트</div>
+            <button onClick={handleShareClick} class="button-share flex flex-row font-title text-md gap-1 py-2 px-3 mb-12"><ShareIcon/>공유하기</button>
         </div>
         <img src='/images/bgHome.png' class="w-full"></img>
       </div>
-      <div class="h-full w-full max-w-md px-4 py-12 bg-primary-400">
-        <div class="w-full h-full flex flex-col items-center justify-center gap-12">
+      <div class="h-full w-full max-w-md px-4 py-8 bg-primary-400">
+        <div class="w-full h-full flex flex-col items-center justify-start gap-12">
           <button onClick={startQuiz} class="button-start w-full bg-primary-400 text-white mx-2 py-2">시작하기</button>
           <div class="w-full flex flex-col items-center justify-between gap-8">
+            <div class="line-home w-full"></div>
             <div class="flex flex-col items-center justify-between gap-3">
               <div class="font-title text-md text-white">누적 참여자 수</div>
               <div class="font-title text-3xl text-white">1,000,000</div>
             </div>
-            
           </div>
         </div>
       </div>
