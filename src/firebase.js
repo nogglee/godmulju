@@ -5,9 +5,9 @@ import { v4 as uuidv4 } from 'uuid'; // UUID를 사용하여 고유 ID 생성
 
 // Firebase 설정 객체
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  apiKey: "AIzaSyCDPT5VSNSsqLeuFGfYXQL8i6WFY3r004M",
+  authDomain: "godmulju-3b74e.firebaseapp.com",
+  projectId: "godmulju-3b74e",
   storageBucket: "godmulju-3b74e.appspot.com",
   messagingSenderId: "388543139721",
   appId: "1:388543139721:web:030eb5b93a6488ec1a9b58",
