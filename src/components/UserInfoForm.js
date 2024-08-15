@@ -30,31 +30,17 @@ const UserInfoForm = () => {
         const userCollection = collection(db, "users");
         const userQuery = query(userCollection, where("ip", "==", userIp));
         const querySnapshot = await getDocs(userQuery);
-
-        if (!querySnapshot.empty) {
-          // 이미 IP가 존재할 경우 데이터 업데이트
-          querySnapshot.forEach(async (docSnapshot) => {
-            const docRef = doc(db, "users", docSnapshot.id);
-            await setDoc(docRef, {
-              age,
-              role,
-              answers,
-              result,
-              ip: userIp,
-              timestamp: new Date()
-            }, { merge: true });
-          });
-        } else {
-          // 새 데이터 추가
-          await addDoc(userCollection, {
-            age,
-            role,
-            answers,
-            result,
-            ip: userIp,
-            timestamp: new Date()
-          });
-        }
+        
+        // 새 데이터 추가
+        await addDoc(userCollection, {
+          age,
+          role,
+          answers,
+          result,
+          ip: userIp,
+          timestamp: new Date()
+        });
+        
 
         // 결과 페이지로 이동
         navigate('/result', { state: { result, userInfo } });
