@@ -74,9 +74,16 @@ const Result = () => {
       <Header />
 
       {/* 결과 컨텐츠 */}
-      <div className="flex flex-col h-full max-w-md w-full bg-gray-100 py-5 px-8 font-title gap-4 items-center whitespace-pre-line">
+      <div className="flex flex-col h-full max-w-md w-full bg-gray-100 py-5 px-4 font-title gap-4 items-center whitespace-pre-line">
         <div className='text-gray-600 text-md'>내 건물의 이름은</div>
-        <div><img src={mbtiResult.buildingName} alt={`${result} 이미지`} /></div>
+        <div>
+          <img src={mbtiResult.buildingName} alt={`${result} 이미지`} />
+        </div>
+        <div className="text-center font-body font-bold flex flex-row items-center">
+          <div className='text-sm text-gray-300 mr-1'>전체 테스트 참여자 중</div>
+          <div className='bg-primary-400 text-md text-white px-1'>{percentage}%</div>
+          <div className='text-sm text-gray-300 ml-1'>가 같은 유형입니다.</div>
+        </div>
         <div>
           <img src={`/images/${result}.png`} alt={`${result} 이미지`} />
         </div>
@@ -118,10 +125,7 @@ const Result = () => {
           ))}
         </div>
 
-        {/* 나와 같은 유형 비율 표시 */}
-        <div className="mt-8 text-center">
-          <p>나와 같은 유형의 사람은 전체의 <strong>{percentage}%</strong>입니다.</p>
-        </div>
+        
       </div>
     </div>
   );
