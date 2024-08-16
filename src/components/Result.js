@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { mbtiData } from '../data/mbtiData';
 import Header from './Header';
 import { db } from '../firebase'; // Firebase 설정을 import
@@ -10,6 +10,7 @@ const Result = () => {
   const { result, userInfo } = location.state || {}; // MBTI 결과와 사용자 정보
   const mbtiResult = mbtiData.find(item => item.mbti === result);
   const [percentage, setPercentage] = useState(0); // 비율을 저장할 상태
+  const navigate = useNavigate();
 
   const radius = 45; // 반지름
   const circumference = 2 * Math.PI * radius; // 원 둘레
@@ -49,6 +50,12 @@ const Result = () => {
 
   // 애니메이션을 위한 useEffect
   useEffect(() => {
+    // mbtiResult가 없으면 홈 페이지로 리다이렉트
+    if (!mbtiResult) {
+      navigate('/');
+      return;
+    }
+
     // 애니메이션 트리거
     const timeOutId = setTimeout(() => {
       setDashOffsets(
@@ -59,8 +66,12 @@ const Result = () => {
     }, 100); // 살짝 지연을 줘서 자연스럽게 애니메이션이 트리거됨
 
     return () => clearTimeout(timeOutId);
-  }, [circumference, mbtiResult.traits]);
+  }, [circumference, mbtiResult.traits, navigate]);
 
+  // mbtiResult가 없으면 아무것도 렌더링하지 않음
+  if (!mbtiResult) {
+    return null;
+  }
 
   return (
     <div className="h-screen flex flex-col justify-start items-center font-title">
