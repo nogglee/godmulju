@@ -52,7 +52,6 @@ const Quiz = () => {
       return updatedAnswers;
     });
 
-    // 1초 후에 다음 질문으로 이동
     setTimeout(() => {
       setAnswers((prevAnswers) => {
         const updatedAnswers = {
@@ -71,7 +70,7 @@ const Quiz = () => {
         }
         return updatedAnswers;
       });
-    }, 800);
+    }, 400); // 다음 질문 딜레이
   };
 
   const handlePreviousClick = () => {
