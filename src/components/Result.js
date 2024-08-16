@@ -75,7 +75,7 @@ useEffect(() => {
       <div className="flex flex-col h-full max-w-md w-full bg-white py-5 px-4 font-title gap-4 items-center whitespace-pre-line">
         <div className='text-gray-600 text-md'>내 건물의 이름은</div>
         <div>
-          <img src={mbtiResult.buildingName} alt={`${result} 이미지`} />
+          <img src={mbtiResult.buildingName} />
         </div>
         <div className="text-center font-body font-bold flex flex-row items-center">
           <div className='text-sm text-gray-300 mr-1'>전체 테스트 참여자 중</div>
