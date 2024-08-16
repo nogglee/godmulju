@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ReactComponent as BackIcon } from '../assets/ico-arrow-left.svg';
-import { ReactComponent as RetryIcon } from '../assets/ico-retry.svg';
 
 const Header = () => {
   

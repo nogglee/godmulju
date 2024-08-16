@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header';
+import { ReactComponent as PreviousIcon } from '../assets/ico-previous.svg';
 
 const Quiz = () => {
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
+  const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
   const [answers, setAnswers] = useState({ I: 0, E: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 });
 
@@ -43,6 +45,13 @@ const Quiz = () => {
   const handleAnswerClick = (type, index) => {
     setSelectedAnswerIndex(index); // 클릭한 답변의 인덱스를 설정
 
+    // 선택한 답변을 저장
+    setSelectedAnswers((prev) => {
+      const updatedAnswers = [...prev];
+      updatedAnswers[currentQuestion] = index;
+      return updatedAnswers;
+    });
+
     // 1초 후에 다음 질문으로 이동
     setTimeout(() => {
       setAnswers((prevAnswers) => {
@@ -53,7 +62,7 @@ const Quiz = () => {
         const nextQuestion = currentQuestion + 1;
         if (nextQuestion < shuffledQuestions.length) {
           setCurrentQuestion(nextQuestion);
-          setSelectedAnswerIndex(null); // 다음 질문으로 넘어갈 때 선택 초기화
+          setSelectedAnswerIndex(selectedAnswers[nextQuestion] || null); // 이전에 선택한 답변 유지
         } else {
           // 비동기적으로 라우팅을 처리하여 상태 업데이트와 충돌을 방지합니다.
           setTimeout(() => {
@@ -62,7 +71,15 @@ const Quiz = () => {
         }
         return updatedAnswers;
       });
-    }, 1000);
+    }, 800);
+  };
+
+  const handlePreviousClick = () => {
+    if (currentQuestion > 0) {
+      const previousQuestion = currentQuestion - 1;
+      setCurrentQuestion(previousQuestion);
+      setSelectedAnswerIndex(selectedAnswers[previousQuestion] || null);
+    }
   };
 
   // 프로그레스 바 너비 계산
@@ -73,26 +90,38 @@ const Quiz = () => {
     <div className="h-screen flex flex-col justify-center items-center font-title">
       <Header />
       {shuffledQuestions[currentQuestion] ? (
-        <div className="flex flex-col h-full max-w-md w-full bg-gray-100 py-20 px-8 font-title gap-1">
-          
-          <div className="text-sm ml-2">{currentQuestion + 1} / {questions.length}</div>
-          {/* 프로그레스 바 */}
-          <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-            <div
-              className="bg-primary-400 h-2.5 rounded-full transition-all duration-500 ease-in-out"
-              style={{ width: `${progressPercentage}%` }}
-            ></div>
+        <div className="flex flex-col h-full max-w-md w-full bg-gray-100 py-8 px-8 font-title gap-16">
+          <div className='flex flex-col gap-3'>
+            <div className='flex flex-row justify-between items-center font-body text-md'>
+              {/* 이전 문제 버튼 */}
+              <button
+                  onClick={handlePreviousClick}
+                  disabled={currentQuestion === 0}
+                  className={`${currentQuestion === 0 ? 'text-gray-200' : 'text-black'} flex flex-row items-center gap-1`}
+              >
+                <PreviousIcon className={`${currentQuestion === 0 ? 'stroke-gray-200' : 'stroke-black'}`}/>이전 문제
+              </button>
+              <div className='flex flex-row gap-1 font-bold'>
+                <div className="text-primary-400">{currentQuestion + 1}</div><div>/ {questions.length}</div>
+              </div>
+            </div>
+            {/* 프로그레스 바 */}
+            <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+              <div
+                className="bg-primary-400 h-2.5 rounded-full transition-all duration-500 ease-in-out"
+                style={{ width: `${progressPercentage}%` }}
+              ></div>
+            </div>
           </div>
           
-          {/* 질문 번호 */}
-          <div className="text-xl text-center mb-2.5">{`Q${currentQuestion + 1}.`}</div>
-
-
-          {/* 상단 질문 영역 */}
-          <div className="text-center text-xl md:text-2xl whitespace-pre-line">
-            {shuffledQuestions[currentQuestion]?.text}
+          <div className='flex flex-col gap-2'>
+            {/* 질문 번호 */}
+            <div className="text-xl text-center mb-2.5">{`Q${currentQuestion + 1}.`}</div>
+            {/* 상단 질문 영역 */}
+            <div className="text-center text-xl md:text-2xl whitespace-pre-line">
+              {shuffledQuestions[currentQuestion]?.text}
+            </div>
           </div>
-          
           {/* 하단 버튼 영역 */}
           <div className="grid gap-6 mt-4">
             {shuffledQuestions[currentQuestion]?.options.map((option, index) => (
