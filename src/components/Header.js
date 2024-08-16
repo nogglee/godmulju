@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { ReactComponent as BackIcon } from '../assets/ico-arrow-left.svg';
+import { ReactComponent as HomeIcon } from '../assets/ico-home.svg';
 
 const Header = () => {
   
@@ -18,7 +18,7 @@ const Header = () => {
   return(
     <div id="header" className={`w-full h-16 max-w-md flex justify-center items-center text-md text-white relative ${isResultPage ? 'bg-black' : 'bg-primary-400'}`}>
       <button onClick={handleBackClick} className="absolute left-4 cursor-pointer">
-        <BackIcon />
+        <HomeIcon />
       </button>
       갓물주 운명 테스트
     </div>
