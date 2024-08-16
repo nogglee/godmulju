@@ -18,7 +18,7 @@ const Header = () => {
   };
 
   return(
-    <div id="header" class="w-full h-16 max-w-md bg-primary-400 flex justify-center items-center text-md text-white relative">
+    <div id="header" className="w-full h-16 max-w-md bg-primary-400 flex justify-center items-center text-md text-white relative">
       <button onClick={handleBackClick} className="absolute left-4 cursor-pointer"><BackIcon/></button>
       갓물주 운명 테스트
     </div>
