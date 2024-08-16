@@ -5,6 +5,7 @@ import Header from './Header';
 const Quiz = () => {
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
   const [answers, setAnswers] = useState({ I: 0, E: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 });
 
@@ -39,27 +40,29 @@ const Quiz = () => {
   }, []);
 
   // 답변 클릭 핸들러
-  const handleAnswerClick = (type) => {
-    setAnswers((prevAnswers) => {
-      const updatedAnswers = {
-        ...prevAnswers,
-        [type]: prevAnswers[type] + 1,
-      };
+  const handleAnswerClick = (type, index) => {
+    setSelectedAnswerIndex(index); // 클릭한 답변의 인덱스를 설정
 
-      const nextQuestion = currentQuestion + 1;
-      if (nextQuestion < questions.length) {
-        setCurrentQuestion(nextQuestion);
-      } else {
-        // // 모든 질문이 완료되면 사용자 정보 입력 페이지로 이동
-        // navigate('/user-info', { state: { answers: updatedAnswers } });
-        // 비동기적으로 라우팅을 처리하여 상태 업데이트와 충돌을 방지합니다.
-        setTimeout(() => {
-          navigate('/user-info', { state: { answers: updatedAnswers } });
-        }, 0); // 상태 
-      }
-
-      return updatedAnswers;
-    });
+    // 1초 후에 다음 질문으로 이동
+    setTimeout(() => {
+      setAnswers((prevAnswers) => {
+        const updatedAnswers = {
+          ...prevAnswers,
+          [type]: prevAnswers[type] + 1,
+        };
+        const nextQuestion = currentQuestion + 1;
+        if (nextQuestion < shuffledQuestions.length) {
+          setCurrentQuestion(nextQuestion);
+          setSelectedAnswerIndex(null); // 다음 질문으로 넘어갈 때 선택 초기화
+        } else {
+          // 비동기적으로 라우팅을 처리하여 상태 업데이트와 충돌을 방지합니다.
+          setTimeout(() => {
+            navigate('/user-info', { state: { answers: updatedAnswers } });
+          }, 0); // 상태 
+        }
+        return updatedAnswers;
+      });
+    }, 1000);
   };
 
   // 프로그레스 바 너비 계산
@@ -72,6 +75,7 @@ const Quiz = () => {
       {shuffledQuestions[currentQuestion] ? (
         <div className="flex flex-col h-full max-w-md w-full bg-gray-100 py-20 px-8 font-title gap-1">
           
+          <div className="text-sm ml-2">{currentQuestion + 1} / {questions.length}</div>
           {/* 프로그레스 바 */}
           <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
             <div
@@ -92,9 +96,21 @@ const Quiz = () => {
           {/* 하단 버튼 영역 */}
           <div className="grid gap-6 mt-4">
             {shuffledQuestions[currentQuestion]?.options.map((option, index) => (
-              <button key={index} onClick={() => handleAnswerClick(option.type)} style={{ whiteSpace: 'pre-wrap' }} className="button-quiz">
-                {option.text}
-              </button>
+              // <button key={index} onClick={() => handleAnswerClick(option.type)} style={{ whiteSpace: 'pre-wrap' }} className="button-quiz">
+              //   {option.text}
+              // </button>
+              <button
+              key={index}
+              onClick={() => handleAnswerClick(option.type, index)}
+              className={`button-quiz transition-colors shadow-[0_3px_1px_0_rgba(17,17,17,1)] ${
+                selectedAnswerIndex === index
+                  ? 'bg-primary-400 text-white border-4 border-solid border-black'
+                  : 'bg-white text-black border-4 border-solid border-black'
+              }`}
+              style={{ whiteSpace: 'pre-wrap'}}
+            >
+              {option.text}
+            </button>
             ))}
           </div>
         </div>
