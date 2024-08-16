@@ -79,7 +79,7 @@ const UserInfoForm = () => {
                   checked={role === '임차인'}
                   onChange={(e) => setRole(e.target.value)}
                 />
-                임차인
+                세입자
               </label>
             </div>
             <div className='info-label-box'>
@@ -91,7 +91,7 @@ const UserInfoForm = () => {
                   checked={role === '임대인'}
                   onChange={(e) => setRole(e.target.value)}
                 />
-                임대인
+                집주인
               </label>
             </div>
           </div>
