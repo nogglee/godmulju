@@ -70,7 +70,7 @@ const Quiz = () => {
         }
         return updatedAnswers;
       });
-    }, 400); // 다음 질문 딜레이
+    }, 200); // 다음 질문 딜레이
   };
 
   const handlePreviousClick = () => {
