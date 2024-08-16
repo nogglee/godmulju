@@ -5,7 +5,7 @@ import Header from './Header';
 import { db } from '../firebase'; // Firebase 설정을 import
 import { collection, getDocs, query, where } from "firebase/firestore";
 
-const Result = () => {
+const Result = ( { mbtiResult } ) => {
   const location = useLocation();
   const { result, userInfo } = location.state || {}; // MBTI 결과와 사용자 정보
   const mbtiResult = mbtiData.find(item => item.mbti === result);
@@ -67,11 +67,6 @@ const Result = () => {
 
     return () => clearTimeout(timeOutId);
   }, [circumference, mbtiResult.traits, navigate]);
-
-  // mbtiResult가 없으면 아무것도 렌더링하지 않음
-  if (!mbtiResult) {
-    return null;
-  }
 
   return (
     <div className="h-screen flex flex-col justify-start items-center font-title">
