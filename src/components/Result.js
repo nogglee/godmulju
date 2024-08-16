@@ -5,7 +5,7 @@ import Header from './Header';
 import { db } from '../firebase'; // Firebase 설정을 import
 import { collection, getDocs, query, where } from "firebase/firestore";
 
-const Result = ( { mbtiResult } ) => {
+const Result = () => {
   const location = useLocation();
   const { result, userInfo } = location.state || {}; // MBTI 결과와 사용자 정보
   const mbtiResult = mbtiData.find(item => item.mbti === result);
