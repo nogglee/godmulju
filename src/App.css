@@ -46,27 +46,6 @@ p {
   width: 100px;
 }
 
-.circle-chart {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  display: inline-block;
-}
-
-.circle-chart svg {
-  transform: rotate(-90deg);
-}
-
-.circle-chart span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 18px;
-  font-weight: bold;
-}
-
-/* 차트 디자인 끝 */
 
 /* 사용자 정보 시작 */
 .user-info-form {
@@ -207,3 +186,8 @@ select {
   text-shadow:
     0 -2px 0 rgba(0, 0, 0, 0.1); /* 왼쪽 아래 */
 }
+/* mask#progress-mask {
+  transform: 'rotate(-90deg)';
+    transformOrigin: '45px 45px';
+    transition: 'stroke-dashoffset 1s ease';
+  } */
