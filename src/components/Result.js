@@ -74,7 +74,7 @@ const Result = () => {
       <Header />
 
       {/* 결과 컨텐츠 */}
-      <div className="flex flex-col h-full max-w-md w-full bg-gray-100 py-5 px-4 font-title gap-4 items-center whitespace-pre-line">
+      <div className="flex flex-col h-full max-w-md w-full bg-white py-5 px-4 font-title gap-4 items-center whitespace-pre-line">
         <div className='text-gray-600 text-md'>내 건물의 이름은</div>
         <div>
           <img src={mbtiResult.buildingName} alt={`${result} 이미지`} />
@@ -87,12 +87,13 @@ const Result = () => {
         <div>
           <img src={`/images/${result}.png`} alt={`${result} 이미지`} />
         </div>
+        <div className='text-md text-gray-600'>{mbtiResult.typeName}</div>
         <div className="flex justify-around">
           {mbtiResult.traits.map((trait, index) => (
             <div key={index} className="trait flex flex-col items-center">
               <h3>{trait.name}</h3>
               <div className="circle-chart relative">
-                <svg width="100" height="100" viewBox="0 0 100 100">
+                {/* <svg width="100" height="100" viewBox="0 0 100 100">
                   <circle
                     cx="50"
                     cy="50"
@@ -116,7 +117,41 @@ const Result = () => {
                       transformOrigin: '50% 50%',
                     }}
                   />
-                </svg>
+                </svg> */}
+                <svg width="90" height="90" viewBox="0 0 100 100">
+                    {/* 배경 원 */}
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r={radius}
+                      fill="none"
+                      stroke="#f0f0f0"
+                      strokeWidth="10"
+                    />
+                    {/* 그라데이션 원 */}
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r={radius}
+                      fill="none"
+                      stroke="url(#gradient)" // 그라데이션 적용
+                      strokeWidth="10"
+                      strokeDasharray={circumference}
+                      strokeDashoffset={strokeDashoffset}
+                      style={{
+                        transition: 'stroke-dashoffset 2s ease-in-out',
+                        transform: 'rotate(-90deg)',
+                        transformOrigin: '50% 50%',
+                      }}
+                    />
+                    {/* 그라데이션 정의 */}
+                    <defs>
+                      <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#ff9a00" />
+                        <stop offset="100%" stopColor="#ff3d00" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
                 <span className="absolute inset-0 flex justify-center items-center font-bold text-black text-lg">
                   {trait.value}%
                 </span>
