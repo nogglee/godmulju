@@ -199,3 +199,11 @@ select {
   text-align: center;
   margin-bottom: 60px;
 }
+
+.inner-shadow-text {
+  color: #FB9504;
+  font-size: 35px;
+  line-height: 50px;
+  text-shadow:
+    0 -2px 0 rgba(0, 0, 0, 0.1); /* 왼쪽 아래 */
+}

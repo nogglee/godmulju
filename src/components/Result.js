@@ -74,8 +74,9 @@ const Result = () => {
       <Header />
 
       {/* 결과 컨텐츠 */}
-      <div className="flex flex-col h-full max-w-md w-full bg-gray-100 py-20 px-8 font-title gap-1">
-        <h2>{mbtiResult.buildingName}</h2>
+      <div className="flex flex-col h-full max-w-md w-full bg-gray-100 py-5 px-8 font-title gap-4 items-center whitespace-pre-line">
+        <div className='text-gray-600 text-md'>내 건물의 이름은</div>
+        <div><img src={mbtiResult.buildingName} alt={`${result} 이미지`} /></div>
         <div>
           <img src={`/images/${result}.png`} alt={`${result} 이미지`} />
         </div>
