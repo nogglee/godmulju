@@ -49,19 +49,19 @@ useEffect(() => {
       calculatePercentage();
     }
   }, [result]);
-  
+
   // 애니메이션을 위한 useEffect
   useEffect(() => {
     if (!mbtiResult) {
       navigate('/');
       return;
     }
-  
-    const offsets = mbtiResult.traits.map(trait => 
+
+    const offsets = mbtiResult.traits.map(trait =>
       circumference - (trait.value / 100) * circumference
     );
     setDashOffsets(offsets);
-  
+
     console.log("Updated Offsets:", offsets);
   }, [circumference, mbtiResult, navigate]);
 
@@ -91,11 +91,11 @@ useEffect(() => {
             <div key={`${trait.name}-${dashOffsets[index]}`} className="trait flex flex-col items-center">
             <h3>{trait.name}</h3>
             <div>
-              <CircularProgress 
+              <CircularProgress
                 key={index}
-                value={trait.value} 
-                dashOffset={dashOffsets[index]} 
-                circumference={circumference} 
+                value={trait.value}
+                dashOffset={dashOffsets[index]}
+                circumference={circumference}
               />
             </div>
           </div>
