@@ -49,15 +49,18 @@ const Result = () => {
 
   // 애니메이션을 위한 useEffect
   useEffect(() => {
-    // 컴포넌트가 마운트되면서 애니메이션 시작
-    if (mbtiResult) {
+    // 애니메이션 트리거
+    const timeOutId = setTimeout(() => {
       setDashOffsets(
         mbtiResult.traits.map(trait => 
           circumference - (trait.value / 100) * circumference
         )
       );
-    }
-  }, [circumference, mbtiResult]);
+    }, 100); // 살짝 지연을 줘서 자연스럽게 애니메이션이 트리거됨
+
+    return () => clearTimeout(timeOutId);
+  }, [circumference, mbtiResult.traits]);
+
 
   return (
     <div className="h-screen flex flex-col justify-start items-center font-title">

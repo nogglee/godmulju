@@ -50,8 +50,12 @@ const Quiz = () => {
       if (nextQuestion < questions.length) {
         setCurrentQuestion(nextQuestion);
       } else {
-        // 모든 질문이 완료되면 사용자 정보 입력 페이지로 이동
-        navigate('/user-info', { state: { answers: updatedAnswers } });
+        // // 모든 질문이 완료되면 사용자 정보 입력 페이지로 이동
+        // navigate('/user-info', { state: { answers: updatedAnswers } });
+        // 비동기적으로 라우팅을 처리하여 상태 업데이트와 충돌을 방지합니다.
+        setTimeout(() => {
+          navigate('/user-info', { state: { answers: updatedAnswers } });
+        }, 0); // 상태 
       }
 
       return updatedAnswers;
