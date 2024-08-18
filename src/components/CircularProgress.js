@@ -2,7 +2,6 @@ import React from 'react';
 
 const CircularProgress = ({value, dashOffset, circumference}) => {
 
-
   const radius = 40;
 
   return (
@@ -20,7 +19,7 @@ const CircularProgress = ({value, dashOffset, circumference}) => {
       </svg>
 
       {/* 그라데이션 PNG를 사용 */}
-      <svg width="90" height="90" className="absolute" viewBox="0 0 90 90" preserveAspectRatio="xMidYMid meet">
+      <svg width="90" height="90" className="absolute" viewBox="0 0 90 90">
         <defs>
           <mask
             id={`progress-mask-${value}`}>
@@ -37,7 +36,7 @@ const CircularProgress = ({value, dashOffset, circumference}) => {
               style={{
                 transform: 'rotate(-90deg)',
                 transformOrigin: '45px 45px',
-                transition: 'stroke-dashoffset 1s ease',
+                transition: 'stroke-dashoffset 10s cubic-bezier(0.4, 0.0, 0.2, 1)',
               }}
             />
           </mask>

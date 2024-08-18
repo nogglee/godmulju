@@ -36,15 +36,7 @@ p {
   text-align: center;
 }
 
-.traits {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
 
-.trait {
-  width: 100px;
-}
 
 
 /* 사용자 정보 시작 */
@@ -120,6 +112,13 @@ input[type="radio"] {
   border-radius: 10px;
   color: #fff;
 }
+.button-landing {
+  background-color: #FB9504;
+  border-radius: 5px;
+  width: 100%;
+  color: #fff;
+  margin-top: 50px
+}
 .toast {
   position: fixed;
   bottom: 20px;
@@ -131,7 +130,7 @@ input[type="radio"] {
   border-radius: 8px;
   font-size: 16px;
   animation: fadeInOut 2s ease-in-out;
-  width: 200px;
+  width: 220px;
 }
 
 /* 토스트 메시지 페이드 인/아웃 애니메이션 */
@@ -186,8 +185,6 @@ select {
   text-shadow:
     0 -2px 0 rgba(0, 0, 0, 0.1); /* 왼쪽 아래 */
 }
-/* mask#progress-mask {
-  transform: 'rotate(-90deg)';
-    transformOrigin: '45px 45px';
-    transition: 'stroke-dashoffset 1s ease';
-  } */
+.trait {
+  gap: 48px;
+}
