@@ -90,7 +90,7 @@ useEffect(() => {
 
   
   return (
-    <div className="h-screen flex flex-col justify-start items-center font-title">
+    <div className="min-h-screen flex flex-col justify-start items-center font-title">
       {/* Header */}
       <Header />
 
@@ -124,7 +124,7 @@ useEffect(() => {
           </div>
           ))}
         </div>
-        <button onClick={landingClick} className="button-landing flex flex-row font-body font-bold text-xs items-center justify-center gap-1 py-2 px-3 h-9 md:h-11">부동산 직거래 더 알아보기</button>
+        <button onClick={landingClick} className="button-landing flex flex-row font-body font-bold text-xs items-center justify-center gap-1 py-2 px-3 h-11">부동산 직거래 더 알아보기</button>
         <button onClick={handleShareClick} className="flex flex-row font-body font-bold text-gray-400 text-xs items-center justify-center gap-1 py-2 px-3 mb-12 h-9 md:h-11"><ShareIcon/>테스트 공유하기</button>
       </div>
 
