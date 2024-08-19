@@ -25,12 +25,13 @@ const UserInfoForm = () => {
       try {
         // IP 주소를 가져오기
         const userIp = await fetch('https://ipapi.co/ip/')
-  .then(response => response.text()); // .text()를 사용하여 IP만 가져옵니다.
+        .then(response => response.text()); // .text()를 사용하여 IP만 가져옵니다.
 
         const userCollection = collection(db, "users");
         const userQuery = query(userCollection, where("ip", "==", userIp));
         const querySnapshot = await getDocs(userQuery);
-        
+        const referrer = document.referrer; // 유입 경로
+
         // 새 데이터 추가
         await addDoc(userCollection, {
           age,
@@ -38,6 +39,7 @@ const UserInfoForm = () => {
           answers,
           result,
           ip: userIp,
+          referrer: referrer,
           timestamp: new Date()
         });
         
