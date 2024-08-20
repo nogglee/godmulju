@@ -39,7 +39,7 @@ const UserInfoForm = () => {
           answers,
           result,
           ip: userIp,
-          //referrer,
+          referrer,
           timestamp: new Date()
         });
         
