@@ -35,6 +35,7 @@ export const saveUserData = async (userData) => {
     const submissionsRef = collection(db, "submissions");
     const q = query(submissionsRef, where("userIP", "==", userIP));
     const querySnapshot = await getDocs(q);
+    const referrer = document.referrer; // 유입 경로
 
     let docId;
     if (querySnapshot.empty) {
@@ -47,6 +48,7 @@ export const saveUserData = async (userData) => {
 
     // Firestore에 데이터 저장 (있으면 덮어쓰기)
     await setDoc(doc(submissionsRef, docId), {
+      //referrer: referrer,
       submissionId: docId,
       userIP: userIP,
       age: userData.age,
