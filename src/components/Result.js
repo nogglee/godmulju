@@ -85,7 +85,7 @@ useEffect(() => {
   };
 
   const landingClick = () => {
-    window.open('https://www.naver.com', '_blank', 'noopener,noreferrer');
+    window.open('https://ddabu-rending.vercel.app/');
   };
 
   
