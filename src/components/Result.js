@@ -6,6 +6,10 @@ import CircularProgress from './CircularProgress';
 import { db } from '../firebase'; // Firebase 설정을 import
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { ReactComponent as ShareIcon } from '../assets/ico-share-gray.svg';
+import ReactGA from "react-ga4";
+
+// Google Analytics 초기화
+ReactGA.initialize("G-K9N1CJPHCS"); // 측정 ID는 GA4 설정에서 확인
 
 const Result = () => {
   const location = useLocation();
@@ -85,8 +89,25 @@ useEffect(() => {
   };
 
   const landingClick = () => {
+  
+  //   // 이벤트 전송
+  // ReactGA.event({
+  //   category: "Button", // 이벤트 카테고리
+  //   action: "Click", // 이벤트 액션
+  //   label: "Go To Landing", // 추가로 구체적인 설명을 원할 경우 라벨 사용
+  // });
+  
+  // gtag 이벤트 전송
+  window.gtag('event', 'Click', {
+    event_category: 'Button',
+    event_label: 'Go To Landing',
+    value: 1,
+  });
+
     window.open('https://ddabu-rending.vercel.app/');
   };
+
+  
 
   
   return (
