@@ -36,7 +36,7 @@ const Home = () => {
       try {
         const querySnapshot = await getDocs(collection(db, "users"));
         const actualUserCount = querySnapshot.size; // Firestore에 저장된 실제 사용자 수
-        const displayCount = 100 + actualUserCount; // 기본 값 100에 실제 사용자 수를 더함
+        const displayCount = 1642 + actualUserCount; // 기본 값 100에 실제 사용자 수를 더함
         setParticipantCount(displayCount);
       } catch (error) {
         console.error("참여자 수를 가져오는 중 오류 발생:", error);
