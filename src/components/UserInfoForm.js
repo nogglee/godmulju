@@ -11,10 +11,12 @@ const UserInfoForm = () => {
   const [role, setRole] = useState('');
   const isFormValid = age && role;
 
+  // `Quiz.js`에서 전달된 `answers`와 `specificAnswers`를 가져옵니다.
+  const { answers, specificAnswers } = location.state || {};
+
   const handleConfirm = async () => {
     if (isFormValid) {
       const userInfo = { age, role };
-      const answers = location.state.answers;
 
       const result =
         (answers.I >= answers.E ? 'I' : 'E') +
@@ -25,27 +27,27 @@ const UserInfoForm = () => {
       try {
         // IP 주소를 가져오기
         const userIp = await fetch('https://ipapi.co/ip/')
-        .then(response => response.text()); // .text()를 사용하여 IP만 가져옵니다.
+          .then(response => response.text()); // .text()를 사용하여 IP만 가져옵니다.
 
         const userCollection = collection(db, "users");
-        const userQuery = query(userCollection, where("ip", "==", userIp));
-        const querySnapshot = await getDocs(userQuery);
         const referrer = document.referrer; // 유입 경로
 
         // 새 데이터 추가
         await addDoc(userCollection, {
           age,
           role,
-          answers,
           result,
+          specificAnswers: {
+            '전자문서 계약 여부': specificAnswers.question1, 
+            '부동산 직거래 의향': specificAnswers.question2, 
+          },
           ip: userIp,
           referrer,
           timestamp: new Date()
         });
-        
 
         // 결과 페이지로 이동
-        navigate('/result', { state: { result, userInfo } });
+        navigate('/result', { state: { result, userInfo, specificAnswers } });
       } catch (error) {
         console.error("데이터 저장 중 오류 발생:", error);
         alert('데이터를 저장하는 중 문제가 발생했습니다. 다시 시도해 주세요.');
