@@ -1,0 +1,74 @@
+/* src/index.css */
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+@font-face {
+  font-family: 'yg-jalnan';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@layer utilities {
+  
+
+  /* 제목 스타일 */
+  .title-lg {
+    @apply font-title text-4xl text-center mb-4;
+  }
+
+  .title-md {
+    @apply font-title text-2xl text-center mb-2;
+  }
+
+  /* 본문 스타일 */
+  .body-md {
+    @apply font-sans text-lg text-center;
+  }
+
+  .body-sm {
+    @apply font-sans text-sm text-center;
+  }
+
+  /* 버튼 스타일 */
+  .btn-primary {
+    @apply bg-primary text-white py-2 px-4 rounded-lg hover:bg-primary-dark;
+  }
+}
+/* @keyframes dashOffsetAnimation {
+  from {
+      stroke-dashoffset: 251.32741228718345;
+  }
+  to {
+      stroke-dashoffset: var(--dashoffset); 
+  }
+}
+
+circle {
+  animation: dashOffsetAnimation 1s ease forwards;
+}
+
+*/
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+*/

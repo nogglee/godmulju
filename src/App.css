@@ -1,0 +1,190 @@
+.app {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: black;
+    margin-top: 20px;
+}
+
+.home-container,
+.quiz-container,
+.result-container {
+  margin-top: 50px;
+}
+  
+
+h1,
+h2 {
+  color: #333;
+}
+
+p {
+  color: #666;
+}
+
+.sub-text {
+  border: solid 1px #FB9504;
+  color: #FB9504;
+  padding: 6px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 13px;
+  margin: 30px 0 20px;
+  width: 230px;
+}
+/* 차트 디자인 시작 */
+.result-container {
+  text-align: center;
+}
+
+
+
+
+/* 사용자 정보 시작 */
+.user-info-form {
+  text-align: center;
+}
+
+.form-group {
+  margin: 20px 0;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+.confirm-button {
+  background-color: #ff7f00;
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.confirm-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  width: 100%;
+}
+
+/* 사용자 정보 끝 */
+
+.button-quiz {
+  height: 84px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.button-start {
+  height: 62px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #000;
+  color: #fff;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.line-home {
+  background-color: #fff;
+  height: 2px;
+}
+
+.button-share {
+  background-color:#ff6363;
+  border-radius: 10px;
+  color: #fff;
+}
+.button-landing {
+  background-color: #FB9504;
+  border-radius: 5px;
+  width: 100%;
+  color: #fff;
+  margin-top: 50px
+}
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  animation: fadeInOut 2s ease-in-out;
+  width: 220px;
+}
+
+/* 토스트 메시지 페이드 인/아웃 애니메이션 */
+@keyframes fadeInOut {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  10%,
+  90% {
+    opacity: 1;
+  }
+}
+select {
+  height: 60px;
+  width: 160px;
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #111;
+  border-radius: 12px;
+  border: solid 3px;
+  box-shadow: 0 5px 1px 0;
+  cursor: pointer;
+  text-align: center;
+}
+
+.info-label {
+  font-size: 20px;
+}
+
+.info-label-box {
+  height: 60px;
+  width: 100%;
+  padding: 5px 10px;
+  background-color: #fff;
+  color: #111;
+  border-radius: 12px;
+  border: solid 3px;
+  box-shadow: 0 5px 1px 0;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.inner-shadow-text {
+  color: #FB9504;
+  font-size: 35px;
+  line-height: 50px;
+  text-shadow:
+    0 -2px 0 rgba(0, 0, 0, 0.1); /* 왼쪽 아래 */
+}
+.trait {
+  gap: 48px;
+}
